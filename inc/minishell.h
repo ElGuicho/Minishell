@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:33:48 by guido             #+#    #+#             */
-/*   Updated: 2025/06/30 18:32:29 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/07 20:21:12 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 # include "tokenizing.h"
 # include "parsing.h"
 
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+}	t_env;
+
 typedef struct s_minishell
 {
 	char			*line;
@@ -46,4 +53,8 @@ typedef struct s_minishell
 
 extern t_minishell	g_minishell;
 
-int	main(int argc, char **argv, char **env);
+int		main(int argc, char **argv, char **env);
+void	init_minishell(char **env);
+void	*lst_mng(void *ptr, bool clean);
+void	init_signals(void);
+void	sigquit_handler(int sig);

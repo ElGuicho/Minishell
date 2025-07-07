@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 17:08:05 by guido             #+#    #+#             */
+/*   Updated: 2025/07/07 18:06:30 by guido            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minishell.h"
+
+static t_env	*envlst_new(char *key, char *value)
+{
+	t_env	*new;
+	
+	new = (t_env *)ft_calloc(1, sizeof(t_env));
+	if (!new)
+		return (NULL);
+	new->key = lst_mng(ft_strdup(key), false);
+	if (value)
+		new->value = lst_mng(ft_strdup(value), false);
+	new->next = NULL;
+	return (new);
+}
+
+void	envlst_back(t_env *new)
+{
+	t_env	*current;
+
+	if (!g_minishell.envlst)
+	{
+		g_minishell.envlst = new;
+		return ;
+	}
+	current = g_minishell.envlst;
+	while (current && current->next)
+		current = current->next;
+	current->next = new;
+}
+
+void	uptdate_env_list(char *key, char *value, bool create)
+{
+	t_env	*envlst;
+
+	envlst = g_minishell.envlst;
+	while (envlst)
+	{
+		if (ft_strcmp(envlst->key, key) == 0)
+		{
+			if (value)
+				envlst->value = lst_mng(ft_strdup(value), false);
+			return ;
+		}
+		envlst = envlst->next;
+	}
+	if (create)
+		envlst_back(envlst_new(key, value));
+}

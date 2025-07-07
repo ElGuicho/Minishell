@@ -6,7 +6,7 @@
 #    By: guido <guido@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 15:29:59 by gmunoz            #+#    #+#              #
-#    Updated: 2025/06/30 18:28:27 by guido            ###   ########.fr        #
+#    Updated: 2025/07/07 19:33:34 by guido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ CC			:= cc
 CFLAGS		:= -Wall -Werror -Wextra
 
 BUILTINS	:=	builtins/env.c \
+				builtins/env_utils.c \
 #				builtins/cd.c \
 				builtins/echo.c \
-				builtins/env_utils.c \
 				builtins/exit.c \
 				builtins/export.c \
 				builtins/pwd.c \
@@ -30,10 +30,10 @@ BUILTINS	:=	builtins/env.c \
 
 # CLEANING	:=	cleaning/ft_clean_ms.c
 
-# EXEC		:=	exec/error_msg.c \
+EXEC		:=	exec/exec_utils.c \
+#				exec/error_msg.c \
 				exec/exec_builtin.c \
 				exec/exec_redirect.c \
-				exec/exec_utils.c \
 				exec/exec.c \
 				exec/exist_check.c \
 				exec/ft_exec_simple_cmd.c \
@@ -64,7 +64,7 @@ BUILTINS	:=	builtins/env.c \
 				tokenizing/tokenizer_utils.c \
 				tokenizing/tokenizer.c
 
-SRCS		:=	main.c main_signals.c
+SRCS		:=	main.c signals.c
 				$(BUILTINS)\
 				$(CLEANING)\
 				$(EXEC)\
