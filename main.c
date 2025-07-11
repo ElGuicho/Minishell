@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:09:42 by guido             #+#    #+#             */
-/*   Updated: 2025/07/07 18:18:08 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/11 20:03:49 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ int	main(int argc, char **argv, char **env)
 	while (1)
 	{
 		init_signals();
+		g_minishell.line = readline(PROMPT);
+		if (!g_minishell.line)
+			(clean_ms(), ft_putstr_fd("exit\n", 1), exit(g_minishell.exit_s));
+		if (g_minishell.line[0])
+			add_history(g_minishell.line);
+		g_minishell.tokens = tokenize();
+		if (!g_minishell.tokens)
+			continue ;
+		g_minishell.ast = ft_parse();
 	}
 	return (0);
 }

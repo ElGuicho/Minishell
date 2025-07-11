@@ -6,7 +6,7 @@
 #    By: guido <guido@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 15:29:59 by gmunoz            #+#    #+#              #
-#    Updated: 2025/07/07 19:33:34 by guido            ###   ########.fr        #
+#    Updated: 2025/07/11 18:39:38 by guido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,11 +58,11 @@ EXEC		:=	exec/exec_utils.c \
 				parsing/parser.c
 
 
-# TOKENIZING	:=	tokenizing/tokenizer_appenders.c \
-				tokenizing/tokenizer_handlers.c \
+TOKENIZING	:=	tokenizing/tokenizer.c \
+				tokenizing/token_handler.c \
 				tokenizing/tokenizer_lst.c \
 				tokenizing/tokenizer_utils.c \
-				tokenizing/tokenizer.c
+				tokenizing/token_append.c
 
 SRCS		:=	main.c signals.c
 				$(BUILTINS)\
