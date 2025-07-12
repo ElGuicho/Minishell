@@ -6,7 +6,7 @@
 #    By: guido <guido@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 15:29:59 by gmunoz            #+#    #+#              #
-#    Updated: 2025/07/11 18:39:38 by guido            ###   ########.fr        #
+#    Updated: 2025/07/12 19:28:52 by guido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,12 +50,12 @@ EXEC		:=	exec/exec_utils.c \
 				expander/ft_strip_quotes.c \
 				expander/heredoc_expander.c
 
-# PARSING		:=	parsing/parser_clear.c \
-				parsing/parser_err.c \
-				parsing/parser_helpers.c \
-				parsing/parser_nodes.c \
+PARSING		:=	parsing/parser.c \
 				parsing/parser_utils.c \
-				parsing/parser.c
+				parsing/parser_utils2.c \
+				parsing/parser_err.c \
+				parsing/parser_nodes.c \
+				parsing/parser_clear.c
 
 
 TOKENIZING	:=	tokenizing/tokenizer.c \

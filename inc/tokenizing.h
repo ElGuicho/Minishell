@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 20:42:37 by guido             #+#    #+#             */
-/*   Updated: 2025/07/11 19:51:18 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/11 20:18:05 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,5 @@ void	print_quote_err(char quote);
 bool	skip_quotes(char *line, size_t *i);
 int		is_quote(char c);
 int		is_separator(char *line);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:33:48 by guido             #+#    #+#             */
-/*   Updated: 2025/07/07 20:21:12 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/12 19:18:06 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,6 @@ void	init_minishell(char **env);
 void	*lst_mng(void *ptr, bool clean);
 void	init_signals(void);
 void	sigquit_handler(int sig);
+void	free_char2(char **array);
+
+#endif
