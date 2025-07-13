@@ -6,11 +6,25 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:08:05 by guido             #+#    #+#             */
-/*   Updated: 2025/07/07 18:06:30 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/13 18:33:19 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+char	*get_envlst_val(char *key)
+{
+	t_env	*envlst;
+
+	envlst = g_minishell.envlst;
+	while (envlst)
+	{
+		if (!ft_strcmp(key, envlst->key))
+			return (envlst->value);
+		envlst = envlst->next;
+	}
+	return (NULL);
+}
 
 static t_env	*envlst_new(char *key, char *value)
 {

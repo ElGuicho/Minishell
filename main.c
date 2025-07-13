@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:09:42 by guido             #+#    #+#             */
-/*   Updated: 2025/07/11 20:10:19 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/13 17:04:17 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ static void	init_minishell(char **env)
 	g_minishell.stdin = dup(0);
 	g_minishell.stdout = dup(1);
 	tcgetattr(STDIN_FILENO, &g_minishell.original_term);
+}
+
+static void	start_execution(void)
+{
+	signal(SIGQUIT, sigquit_handler);
+	init_tree(g_minishell.ast);
 }
 
 int	main(int argc, char **argv, char **env)
@@ -40,6 +46,12 @@ int	main(int argc, char **argv, char **env)
 		if (!g_minishell.tokens)
 			continue ;
 		g_minishell.ast = ft_parse();
+		if (g_minishell.parse_err.type)
+		{
+			handle_parse_error();
+			continue ;
+		}
+		start_execution();
 	}
 	return (0);
 }

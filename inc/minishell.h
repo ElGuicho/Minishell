@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:33:48 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 19:18:06 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/13 19:10:41 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,44 @@ typedef struct s_env
 	struct s_env	*next;
 }	t_env;
 
+typedef enum e_err_msg
+{
+	ERRMSG_CMD_NOT_FOUND,
+	ERRMSG_NO_SUCH_FILE,
+	ERRMSG_PERM_DENIED,
+	ERRMSG_AMBIGUOUS,
+	ERRMSG_TOO_MANY_ARGS,
+	ERRMSG_NUMERIC_REQUI
+}	t_err_msg;
+
+typedef enum e_err_no
+{
+	ENO_SUCCESS,
+	ENO_GENERAL,
+	ENO_CANT_EXEC = 126,
+	ENO_NOT_FOUND,
+	ENO_EXEC_255 = 255
+}	t_err_no;
+
+typedef enum e_ast_direction
+{
+	TD_LEFT,
+	TD_RIGHT
+}	t_ast_direction;
+
+typedef struct s_err
+{
+	t_err_no	no;
+	t_err_msg	msg;
+	char		*cause;
+}	t_err;
+
+typedef struct s_path
+{
+	t_err	err;
+	char	*path;
+}	t_path;
+
 typedef struct s_minishell
 {
 	char			*line;
@@ -58,6 +96,18 @@ void	init_minishell(char **env);
 void	*lst_mng(void *ptr, bool clean);
 void	init_signals(void);
 void	sigquit_handler(int sig);
+void	sigint_handler(int sig);
 void	free_char2(char **array);
+char	*ft_strjoin_f(char *s1, char *s2);
+void	init_tree(t_node *node);
+char	**expand(char *str);
+char	*handle_squotes(char *str, size_t *i);
+char	*handle_dquotes(char *str, size_t *i);
+char	*handle_dollar(char *str, size_t *i);
+char	*handle_normal_str(char *str, size_t *i);
+bool	is_valid_var_char(char c);
+char	*get_envlst_val(char *key);
+char	*clean_empty_strs(char *str);
+char	**expander_split(char const *s);
 
 #endif

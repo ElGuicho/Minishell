@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:15:49 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 20:45:29 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/13 16:58:26 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ bool		is_redir(t_token_type type);
 bool		get_io_list(t_io_node **io_list);
 t_io_node	*new_io_node(t_io_type type, char *value);
 void		append_io_node(t_io_node **io_list, t_io_node *new_node);
+void		handle_parse_error(void);
 
 #endif
