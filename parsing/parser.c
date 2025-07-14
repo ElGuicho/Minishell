@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:12:16 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 20:49:12 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 21:08:09 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_node	*combine_nodes(t_token_type op_type, t_node *left, t_node *right)
 	return (node);
 }
 
-t_node	op_mng(int min_prec)
+t_node	*op_mng(int min_prec)
 {
 	t_node			*left;
 	t_node			*right;
@@ -83,7 +83,7 @@ t_node	*ft_parse(void)
 {
 	t_node	*ast;
 
-	g.minishell.curr_token = g.minishell.tokens;
+	g_minishell.curr_token = g_minishell.tokens;
 	ast = op_mng(0);
 	if (g_minishell.curr_token)
 		return (set_parse_err(E_SYNTAX), ast);

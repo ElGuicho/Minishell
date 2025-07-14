@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:29:13 by guido             #+#    #+#             */
-/*   Updated: 2025/07/07 17:01:48 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 21:51:26 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	init_env_list(void)
 {
 	int		i;
 	char	**environ;
-	char	*key
+	char	*key;
 	char	*value;
 
 	environ = g_minishell.environ;

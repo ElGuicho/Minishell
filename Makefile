@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: guido <guido@student.42.fr>                +#+  +:+       +#+         #
+#    By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 15:29:59 by gmunoz            #+#    #+#              #
-#    Updated: 2025/07/13 19:41:55 by guido            ###   ########.fr        #
+#    Updated: 2025/07/14 23:07:44 by gmunoz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,14 @@ BUILTINS	:=	builtins/env.c \
 				builtins/pwd.c \
 				builtins/unset.c
 
-# CLEANING	:=	cleaning/ft_clean_ms.c
+CLEANING	:=	cleaning/clean_ms.c
 
 EXEC		:=	exec/exec_utils.c \
 				exec/init_tree.c \
+				exec/exec.c \
 #				exec/error_msg.c \
 				exec/exec_builtin.c \
 				exec/exec_redirect.c \
-				exec/exec.c \
 				exec/exist_check.c \
 				exec/ft_exec_simple_cmd.c \
 				exec/ft_get_path.c \
@@ -45,8 +45,8 @@ EXPANDER	:=	expander/expand.c \
 				expander/clean_empty_strs.c \
 				expander/expander_split.c \
 				expander/globber.c \
-#				expander/asterisker.c \
 				expander/globber_utils.c \
+				expander/asterisker.c \
 				expander/strip_quotes.c \
 				expander/heredoc_expander.c
 

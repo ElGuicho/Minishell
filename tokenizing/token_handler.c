@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 20:52:34 by guido             #+#    #+#             */
-/*   Updated: 2025/07/11 18:41:03 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 21:19:27 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ int	ft_isspace(char c)
 
 int	handle_separator(char **line, t_token **token_list)
 {
-	if (!ft_strncmp(*line_ptr, "<<", 2))
-		return (append_separator(T_DLESS, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, ">>", 2))
-		return (append_separator(T_DGREAT, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, "<", 1))
-		return (append_separator(T_LESS, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, ">", 1))
-		return (append_separator(T_GREAT, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, "(", 1))
-		return (append_separator(T_O_PARENT, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, ")", 1))
-		return (append_separator(T_C_PARENT, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, "&&", 2))
-		return (append_separator(T_AND, line_ptr, token_list) && 1);
-	else if (!ft_strncmp(*line_ptr, "||", 2))
-		return (append_separator(T_OR, line_ptr, token_list) && 1);
+	if (!ft_strncmp(*line, "<<", 2))
+		return (append_separator(T_DLESS, line, token_list) && 1);
+	else if (!ft_strncmp(*line, ">>", 2))
+		return (append_separator(T_DGREAT, line, token_list) && 1);
+	else if (!ft_strncmp(*line, "<", 1))
+		return (append_separator(T_LESS, line, token_list) && 1);
+	else if (!ft_strncmp(*line, ">", 1))
+		return (append_separator(T_GREAT, line, token_list) && 1);
+	else if (!ft_strncmp(*line, "(", 1))
+		return (append_separator(T_O_PARENT, line, token_list) && 1);
+	else if (!ft_strncmp(*line, ")", 1))
+		return (append_separator(T_C_PARENT, line, token_list) && 1);
+	else if (!ft_strncmp(*line, "&&", 2))
+		return (append_separator(T_AND, line, token_list) && 1);
+	else if (!ft_strncmp(*line, "||", 2))
+		return (append_separator(T_OR, line, token_list) && 1);
 	else
-		return (append_separator(T_PIPE, line_ptr, token_list) && 1);
+		return (append_separator(T_PIPE, line, token_list) && 1);
 }
 
 t_token *token_handler(char *line)

@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 18:50:51 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 19:21:09 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 21:08:45 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void free_char2(char **array)
-{
-	int i;
-
-	if (!array)
-		return ;
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
 
 void	clear_io_list(t_io_node **io_list)
 {

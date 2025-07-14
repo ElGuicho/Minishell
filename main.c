@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:09:42 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 17:04:17 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 23:05:36 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/minishell.h"
+#include "inc/minishell.h"
 
 t_minishell	g_minishell;
 
@@ -28,6 +28,14 @@ static void	start_execution(void)
 {
 	signal(SIGQUIT, sigquit_handler);
 	init_tree(g_minishell.ast);
+	if (g_minishell.heredoc_sigint)
+	{
+		clear_ast(&g_minishell.ast);
+		g_minishell.heredoc_sigint = false;
+	}
+	tcsetattr(STDIN_FILENO, TCSANOW, &g_minishell.original_term);
+	g_minishell.exit_s = exec_node(g_minishell.ast, false);
+	clear_ast(&g_minishell.ast);
 }
 
 int	main(int argc, char **argv, char **env)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 17:16:28 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 19:41:04 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 21:56:59 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,10 @@ char	**expand(char *str)
 	if (!globbed)
 		return (NULL);
 	i = 0;
+	while (globbed[i])
+	{
+		globbed[i] = strip_quotes(globbed[i]);
+		i++;
+	}
+	return (globbed);
 }

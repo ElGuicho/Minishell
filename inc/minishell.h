@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:33:48 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 19:10:41 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/14 22:45:47 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
+#ifndef ECHOCTL
+#define ECHOCTL 0000100
+#endif
 
 # include <stdio.h>
 # include <readline/readline.h>
@@ -97,7 +101,6 @@ void	*lst_mng(void *ptr, bool clean);
 void	init_signals(void);
 void	sigquit_handler(int sig);
 void	sigint_handler(int sig);
-void	free_char2(char **array);
 char	*ft_strjoin_f(char *s1, char *s2);
 void	init_tree(t_node *node);
 char	**expand(char *str);
@@ -109,5 +112,16 @@ bool	is_valid_var_char(char c);
 char	*get_envlst_val(char *key);
 char	*clean_empty_strs(char *str);
 char	**expander_split(char const *s);
+char	**globber(char **expanded);
+size_t	str_arr_len(char **str_arr);
+size_t	match_counter(char *pattern);
+bool	match_star(char *pattern, char *str);
+bool	contains_asterisk(char *str);
+char	**join_str_arrs(char ***str_arrs);
+char	*strip_quotes(char *str);
+bool	is_delimiter(char *delimiter, char *str);
+void	heredoc_expander(char *str, int fd);
+void	*garbage_collector(void *ptr, bool clean);
+void	clean_ms(void);
 
 #endif
