@@ -6,7 +6,7 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:09:42 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 23:05:36 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:38:25 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int	main(int argc, char **argv, char **env)
 		}
 		start_execution();
 	}
-	return (0);
+	lst_mng(NULL, true);
+	return (clean_ms(), g_minishell.exit_s);
 }

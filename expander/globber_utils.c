@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gobbler_utils.c                                    :+:      :+:    :+:   */
+/*   globber_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 19:20:38 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/14 20:46:19 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 23:09:26 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/minishell.h"
+#include "../inc/minishell.h"
 
 static size_t	multi_arr_strs_count(char ***str_arrs)
 {
@@ -53,7 +53,7 @@ char	**join_str_arrs(char ***str_arrs)
 		strs_count += j;
 		i++;
 	}
-	return (free_char3(str_arrs), joined);
+	return (ft_free_char3(str_arrs), joined);
 }
 
 bool	contains_asterisk(char *str)

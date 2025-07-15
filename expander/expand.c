@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 17:16:28 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:56:59 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:53:49 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 char	*handle_dollar(char *str, size_t *i)
 {

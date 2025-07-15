@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 19:48:08 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/14 20:07:18 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:53:21 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/minishell.h"
+#include "../inc/minishell.h"
 
 static void	handle_pattern_quotes(char **pattern, char *quotes)
 {
@@ -76,7 +76,7 @@ bool	match_star(char *pattern, char *str)
 			&& handle_stars(&pattern, &last_wildcard, &last_match, str))
 			return (true);
 		else if (!pattern_match_exists(
-			&pattern, &last_wildcard, &last_match, &str))
+				&pattern, &last_wildcard, &last_match, &str))
 			return (false);
 	}
 	if (*pattern == '*')

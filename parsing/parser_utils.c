@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 17:21:14 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 19:40:15 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 23:19:19 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 bool	is_redir(t_token_type type)
 {
@@ -27,7 +27,7 @@ int	prec(t_token_type type)
 	return (1);
 }
 
-void	curr_token_prec(void)
+int	curr_token_prec(void)
 {
 	return (prec(g_minishell.curr_token->type));
 }

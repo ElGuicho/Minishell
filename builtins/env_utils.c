@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:08:05 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 18:33:19 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 22:45:16 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
+
+bool	env_entry_exists(char *key)
+{
+	t_env	*envlst;
+
+	envlst = g_minishell.envlst;
+	while (envlst)
+	{
+		if (!ft_strcmp(key, envlst->key))
+			return (true);
+		envlst = envlst->next;
+	}
+	return (false);
+}
 
 char	*get_envlst_val(char *key)
 {
@@ -29,7 +43,7 @@ char	*get_envlst_val(char *key)
 static t_env	*envlst_new(char *key, char *value)
 {
 	t_env	*new;
-	
+
 	new = (t_env *)ft_calloc(1, sizeof(t_env));
 	if (!new)
 		return (NULL);
@@ -55,7 +69,7 @@ void	envlst_back(t_env *new)
 	current->next = new;
 }
 
-void	uptdate_env_list(char *key, char *value, bool create)
+void	update_env_list(char *key, char *value, bool create)
 {
 	t_env	*envlst;
 

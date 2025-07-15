@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_err.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 17:30:15 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 16:56:57 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 22:55:13 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 void	handle_parse_error(void)
 {

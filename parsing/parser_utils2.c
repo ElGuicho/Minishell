@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 19:29:40 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 20:41:49 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 23:16:54 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 char	*ft_strjoin_with(char const *s1, char const *s2, char c)
 {
@@ -44,7 +44,7 @@ char	*ft_strjoin_with(char const *s1, char const *s2, char c)
 bool	join_args(char **args)
 {
 	char	*tmp;
-	
+
 	if (g_minishell.parse_err.type)
 		return (false);
 	if (!*args)
@@ -91,7 +91,7 @@ bool	get_io_list(t_io_node **io_list)
 t_node	*get_simple_cmd(void)
 {
 	t_node	*node;
-	
+
 	if (g_minishell.parse_err.type)
 		return (NULL);
 	node = new_node(N_CMD);

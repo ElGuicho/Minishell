@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:38:42 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/14 20:42:35 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 23:06:33 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/minishell.h"
+#include "../inc/minishell.h"
 
 static bool	matches_visibility(char *pattern, char *str)
 {
@@ -68,5 +68,5 @@ char	**globber(char **expanded)
 		globbed[i] = globber_helper(expanded[i]);
 		i++;
 	}
-	return (free_char2(expanded), join_str_arrs(globbed));
+	return (ft_free_char2(expanded), join_str_arrs(globbed));
 }

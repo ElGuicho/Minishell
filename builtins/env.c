@@ -6,13 +6,27 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:29:13 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:51:26 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:44:41 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
-char *get_key(char *str)
+int	ft_env(void)
+{
+	t_env	*list;
+
+	list = g_minishell.envlst;
+	while (list)
+	{
+		if (list->value != NULL)
+			printf("%s=%s\n", list->key, list->value);
+		list = list->next;
+	}
+	return (ENO_SUCCESS);
+}
+
+char	*get_key(char *str)
 {
 	size_t	i;
 
@@ -57,7 +71,7 @@ void	init_env_list(void)
 	{
 		key = get_key(environ[i]);
 		value = get_value(environ[i]);
-		uptdate_env_list(key, value, true);
+		update_env_list(key, value, true);
 		i++;
 	}
 }

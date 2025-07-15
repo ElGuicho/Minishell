@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   clean_empty_strs.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 18:42:06 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 18:55:42 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 22:53:38 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 char	*clean_empty_strs(char *str)
 {

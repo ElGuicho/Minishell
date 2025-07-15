@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 21:58:06 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/14 22:02:31 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:54:56 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 static size_t	unquoted_strlen(char *str)
 {
@@ -33,7 +33,7 @@ static size_t	unquoted_strlen(char *str)
 				len += (i++ || 1);
 		}
 		else
-				len += (i++ || 1);
+			len += (i++ || 1);
 	}
 	return (len);
 }

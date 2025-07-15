@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 18:35:21 by guido             #+#    #+#             */
-/*   Updated: 2025/07/12 20:44:51 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 23:23:17 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 void	append_io_node(t_io_node **io_list, t_io_node *new_node)
 {
@@ -38,10 +38,10 @@ t_io_type	get_io_type(t_token_type type)
 	return (IO_APPEND);
 }
 
-t_io_node	*new_io_node(t_io_type type, char *value)
+t_io_node	*new_io_node(t_token_type type, char *value)
 {
 	t_io_node	*new_node;
-	
+
 	new_node = (t_io_node *)ft_calloc(1, sizeof(t_io_node));
 	if (!new_node)
 		return (NULL);

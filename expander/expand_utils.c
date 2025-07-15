@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expand_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 17:42:03 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 18:36:10 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 22:53:44 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 char	*handle_normal_str(char *str, size_t *i)
 {
@@ -32,7 +32,7 @@ bool	is_valid_var_char(char c)
 static char	*handle_dquote_str(char *str, size_t *i)
 {
 	size_t	start;
-	
+
 	start = *i;
 	(*i)++;
 	while (str[*i] != '"' && str[*i] != '$')
@@ -67,5 +67,4 @@ char	*handle_squotes(char *str, size_t *i)
 		(*i)++;
 	(*i)++;
 	return (ft_substr(str, start, *i - start));
-	
 }

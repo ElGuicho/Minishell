@@ -1,37 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_ms.c                                         :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 22:38:47 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/15 22:50:37 by gmunoz           ###   ########.fr       */
+/*   Created: 2025/07/15 20:32:10 by gmunoz            #+#    #+#             */
+/*   Updated: 2025/07/15 22:49:54 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
-static void	clear_envlst(void)
+static int	check_option(char *s)
 {
-	t_env	*envlst;
-	t_env	*envlst_tofree;
+	int	i;
 
-	envlst = g_minishell.envlst;
-	while (envlst)
+	i = 0;
+	if (s[0] != '-')
+		return (0);
+	i++;
+	while (s[i])
 	{
-		envlst_tofree = envlst;
-		envlst = envlst->next;
-		free(envlst_tofree);
+		if (s[i] != 'n')
+			return (0);
+		i++;
 	}
-	g_minishell.envlst = NULL;
+	return (1);
 }
 
-void	clean_ms(void)
+int	ft_echo(char **args)
 {
-	lst_mng(NULL, true);
-	clear_ast(&g_minishell.ast);
-	clear_envlst();
-	rl_clear_history();
-	tcsetattr(STDIN_FILENO, TCSANOW, &g_minishell.original_term);
+	int	i;
+	int	opt;
+
+	i = 1;
+	opt = 0;
+	while (args[i] != NULL && check_option(args[i]) == 1)
+	{
+		opt = 1;
+		i++;
+	}
+	while (args[i])
+	{
+		ft_putstr_fd(args[i], 1);
+		if (args[i + 1])
+			ft_putstr_fd(" ", 1);
+		i++;
+	}
+	if (opt == 0)
+		ft_putstr_fd("\n", 1);
+	return (0);
 }

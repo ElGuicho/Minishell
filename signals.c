@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:17:32 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:48:34 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:51:20 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "inc/minishell.h"
 
 void	sigquit_handler(int sig)
 {
@@ -36,7 +36,7 @@ static void	sigint_handler(int sig)
 	}
 }
 
-void	init_signals()
+void	init_signals(void)
 {
 	struct termios	term;
 

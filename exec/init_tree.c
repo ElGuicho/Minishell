@@ -6,16 +6,16 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 17:05:16 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 22:56:31 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:57:33 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 static void	heredoc_sigint_handler(int signum)
 {
 	(void)signum;
-	ft_clean_ms();
+	clean_ms();
 	exit(SIGINT);
 }
 

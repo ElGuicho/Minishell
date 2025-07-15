@@ -6,7 +6,7 @@
 #    By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 12:03:13 by gmunoz            #+#    #+#              #
-#    Updated: 2025/07/14 21:01:39 by gmunoz           ###   ########.fr        #
+#    Updated: 2025/07/15 23:47:07 by gmunoz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,14 @@ BNSSRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 
 OBJS := $(SRCS:.c=.o)
 
-OBJS_BONUS := $(SRCS_BONUS:.c=.o)
+OBJS_BONUS := $(BNSSRCS:.c=.o)
 
 INCLUDE_DIR := "../inc"
 
 %.o: %.c
 	@$(CC) -g $(CFLAGS) -c $< -I$(INCLUDE_DIR) -o $@
 
-all: $(NAME) bonus
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -rcs $@ $^

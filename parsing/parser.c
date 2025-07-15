@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:12:16 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:08:09 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:55:40 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 t_node	*combine_nodes(t_token_type op_type, t_node *left, t_node *right)
 {

@@ -6,12 +6,12 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 20:42:37 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:23:01 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:04:45 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKENIZING_H
-# define TOKEN
+# define TOKENIZING_H
 
 # define PROMPT "minishell$ "
 
@@ -46,7 +46,8 @@ void	skip_spaces(char **line);
 t_token	*new_token(char *value, t_token_type type);
 void	token_list_add_back(t_token **lst, t_token *new_token);
 int		handle_separator(char **line, t_token **token_list);
-int		append_separator(t_token_type type, char **line_ptr, t_token **token_list);
+int		append_separator(
+			t_token_type type, char **line_ptr, t_token **token_list);
 int		append_identifier(char **line_ptr, t_token **token_list);
 void	print_quote_err(char quote);
 bool	skip_quotes(char *line, size_t *i);

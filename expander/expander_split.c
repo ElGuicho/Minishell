@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expander_split.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 18:59:40 by guido             #+#    #+#             */
-/*   Updated: 2025/07/13 19:37:47 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 23:06:09 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 static void	skip_word(char const *s, size_t	*i)
 {
@@ -118,6 +118,6 @@ char	**expander_split(char const *s)
 	tofree = strs;
 	strs = allocater(s, strs);
 	if (!strs || !count)
-		return (free_char2(tofree), NULL);
+		return (ft_free_char2(tofree), NULL);
 	return (filler(s, strs));
 }

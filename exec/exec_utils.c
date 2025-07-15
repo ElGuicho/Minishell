@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:30:59 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 22:42:17 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:52:10 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 bool	is_delimiter(char *delimiter, char *str)
 {
@@ -40,22 +40,6 @@ void	del(void *ptr)
 	{
 		free(ptr);
 		ptr = NULL;
-	}
-}
-
-void	*garbage_collector(void *ptr, bool clean)
-{
-	static t_list	*garbage_list;
-
-	if (clean)
-	{
-		ft_lstclear(&garbage_list, del);
-		return (NULL);
-	}
-	else
-	{
-		ft_lstadd_back(&garbage_list, ft_lstnew(ptr));
-		return (ptr);
 	}
 }
 

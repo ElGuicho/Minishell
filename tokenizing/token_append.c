@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   token_append.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:40:00 by guido             #+#    #+#             */
-/*   Updated: 2025/07/11 19:50:13 by guido            ###   ########.fr       */
+/*   Updated: 2025/07/15 22:55:46 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 int	append_identifier(char **line_ptr, t_token **token_list)
 {
@@ -43,7 +43,7 @@ int	append_identifier(char **line_ptr, t_token **token_list)
 
 int	append_separator(t_token_type type, char **line_ptr, t_token **token_list)
 {
-	t_token *token;
+	t_token	*token;
 
 	token = new_token(NULL, type);
 	if (!token)

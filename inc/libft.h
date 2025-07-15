@@ -6,7 +6,7 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:50:22 by gmunoz            #+#    #+#             */
-/*   Updated: 2025/07/14 21:02:56 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:48:44 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
+char				*ft_strjoin_with_f(char *s1, char *s2, char c);
 void				ft_free_char2(char **tofree);
 void				ft_free_char3(char ***tofree);
 int					ft_isalnum(int c);
@@ -39,6 +40,7 @@ char				*ft_strdup(const char *s1);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);

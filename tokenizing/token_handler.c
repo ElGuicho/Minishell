@@ -6,18 +6,18 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 20:52:34 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:19:27 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:55:52 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 int	ft_isspace(char c)
 {
-		if (c == '\t' || c == '\n' || c == '\v'
-			|| c == '\f' || c == '\r' || c == ' ')
-			return (1);
-		return (0);
+	if (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
 }
 
 int	handle_separator(char **line, t_token **token_list)
@@ -42,7 +42,7 @@ int	handle_separator(char **line, t_token **token_list)
 		return (append_separator(T_PIPE, line, token_list) && 1);
 }
 
-t_token *token_handler(char *line)
+t_token	*token_handler(char *line)
 {
 	int		error;
 	t_token	*token_list;

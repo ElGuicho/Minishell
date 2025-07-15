@@ -6,7 +6,7 @@
 #    By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 15:29:59 by gmunoz            #+#    #+#              #
-#    Updated: 2025/07/14 23:07:44 by gmunoz           ###   ########.fr        #
+#    Updated: 2025/07/15 23:31:10 by gmunoz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS		:= -Wall -Werror -Wextra
 
 BUILTINS	:=	builtins/env.c \
 				builtins/env_utils.c \
-#				builtins/cd.c \
+				builtins/cd.c \
 				builtins/echo.c \
 				builtins/exit.c \
 				builtins/export.c \
@@ -33,12 +33,12 @@ CLEANING	:=	cleaning/clean_ms.c
 EXEC		:=	exec/exec_utils.c \
 				exec/init_tree.c \
 				exec/exec.c \
-#				exec/error_msg.c \
-				exec/exec_builtin.c \
+				exec/exec_simple_cmd.c \
 				exec/exec_redirect.c \
+				exec/error_msg.c \
 				exec/exist_check.c \
-				exec/ft_exec_simple_cmd.c \
-				exec/ft_get_path.c \
+				exec/exec_builtin.c \
+				exec/get_path.c
 
 EXPANDER	:=	expander/expand.c \
 				expander/expand_utils.c \
@@ -60,17 +60,17 @@ PARSING		:=	parsing/parser.c \
 
 TOKENIZING	:=	tokenizing/tokenizer.c \
 				tokenizing/token_handler.c \
-				tokenizing/tokenizer_lst.c \
+				tokenizing/tokenizer_list.c \
 				tokenizing/tokenizer_utils.c \
 				tokenizing/token_append.c
 
-SRCS		:=	main.c signals.c
-				$(BUILTINS)\
-				$(CLEANING)\
-				$(EXEC)\
-				$(EXPANDER)\
-				$(PARSING)\
-				$(TOKENIZING)\
+SRCS		:=	main.c signals.c \
+				$(BUILTINS) \
+				$(CLEANING) \
+				$(EXEC) \
+				$(EXPANDER) \
+				$(PARSING) \
+				$(TOKENIZING)
 				
 
 OBJS		:=	$(SRCS:.c=.o)
@@ -78,12 +78,12 @@ OBJS		:=	$(SRCS:.c=.o)
 READLINE_PATH:=	/goinfre/homebrew/opt/readline
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -Iinc -I$(READLINE_PATH)/inc
+	$(CC) $(CFLAGS) -c $< -o $@ -Iinclude -I$(READLINE_PATH)/include
 
 all: $(NAME)
 
 $(LIBFT):
-	@make -C $(LIBFT_PATH)
+	@make bonus -C $(LIBFT_PATH)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@$(CC) -o $(NAME) $(OBJS) -L$(LIBFT_PATH) -lft -L$(READLINE_PATH)/lib -lreadline

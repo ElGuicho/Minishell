@@ -6,11 +6,11 @@
 /*   By: gmunoz <gmunoz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:19:19 by guido             #+#    #+#             */
-/*   Updated: 2025/07/14 21:13:34 by gmunoz           ###   ########.fr       */
+/*   Updated: 2025/07/15 22:56:14 by gmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 void	print_quote_err(char quote)
 {
